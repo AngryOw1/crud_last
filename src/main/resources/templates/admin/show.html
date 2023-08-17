@@ -1,0 +1,286 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xml:th="http://thymeleaf.org">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Search result</title>-->
+<!--  <style>-->
+
+<!--    table {-->
+<!--      border-collapse: collapse;-->
+<!--      width: 100%;-->
+<!--    }-->
+
+<!--    th {-->
+<!--      border: 1px solid #000000;-->
+<!--      text-align: left;-->
+<!--      padding: 8px;-->
+<!--    }-->
+
+<!--    td {-->
+<!--      border: 1px solid #000000;-->
+<!--      text-align: left;-->
+<!--      padding: 8px;-->
+<!--    }-->
+
+<!--    tr:nth-child(even) {-->
+<!--      background-surname: #b2afaf;-->
+<!--    }-->
+
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<table>-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th>User name</th>-->
+<!--    <th>User surname</th>-->
+<!--    <th>User age</th>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--  <tr th:each="usr : ${users4display}">-->
+<!--    <td th:text="${usr.getName()}"></td>-->
+<!--    <td th:text="${usr.getSurname()}"></td>-->
+<!--    <td th:text="${usr.getAge()}"></td>-->
+<!--  </tr>-->
+<!--  </tbody>-->
+<!--</table>-->
+<!--<br/>-->
+<!--<button type="button" >-->
+<!--  <a th:href="@{{id}/edit(id=${users4display.getId()})}">Edit</a>-->
+<!--</button>-->
+<!--<br/>-->
+<!--<br/>-->
+<!--<form th:method="DELETE" th:action="@{{id}(id=${users4display.getId()})}">-->
+<!--  <input type="submit" value="Delete"/>-->
+<!--</form>-->
+<!--</br>-->
+<!--<button type="button" ><a href="logout">Log out</a></button>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xml:th="http://thymeleaf.org">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Search result</title>-->
+<!--  <style>-->
+<!--    body {-->
+<!--      background-color: #F0F2F5;-->
+<!--      font-family: "Helvetica Neue", sans-serif;-->
+<!--    }-->
+<!--    table {-->
+<!--      margin: auto;-->
+<!--      border-collapse: separate;-->
+<!--      border-spacing: 0;-->
+<!--      border-radius: 10px;-->
+<!--      overflow: hidden;-->
+<!--      width: 80%;-->
+<!--      background-color: #FFFFFF;-->
+<!--      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);-->
+<!--    }-->
+<!--    th, td {-->
+<!--      padding: 16px;-->
+<!--      text-align: left;-->
+<!--      border: none;-->
+<!--      border-bottom: 1px solid #E5E5E5;-->
+<!--      font-size: 16px;-->
+<!--    }-->
+<!--    th {-->
+<!--      background-color: #FFFFFF;-->
+<!--      font-weight: bold;-->
+<!--      color: #4A4A4A;-->
+<!--      text-transform: uppercase;-->
+<!--      border-bottom: 2px solid #E5E5E5;-->
+<!--    }-->
+<!--    th:first-child, td:first-child {-->
+<!--      border-top-left-radius: 10px;-->
+<!--      border-bottom-left-radius: 0;-->
+<!--    }-->
+<!--    th:last-child, td:last-child {-->
+<!--      border-top-right-radius: 10px;-->
+<!--      border-bottom-right-radius: 0;-->
+<!--    }-->
+<!--    tbody tr:hover {-->
+<!--      background-color: #F8F8F8;-->
+<!--    }-->
+<!--    .action-btn {-->
+<!--      background-color: #007AFF;-->
+<!--      color: #FFFFFF;-->
+<!--      border-radius: 10px;-->
+<!--      padding: 16px 32px;-->
+<!--      font-size: 16px;-->
+<!--      text-decoration: none;-->
+<!--      border: none;-->
+<!--      margin-right: 16px;-->
+<!--      cursor: pointer;-->
+<!--    }-->
+<!--    .action-btn:hover {-->
+<!--      background-color: #0062CC;-->
+<!--    }-->
+<!--    .action-btn.delete {-->
+<!--      background-color: #FF3B30;-->
+<!--    }-->
+<!--    .action-btn.delete:hover {-->
+<!--      background-color: #FF453A;-->
+<!--    }-->
+<!--    a {-->
+<!--      color: #FFFFFF;-->
+<!--      text-decoration: none;-->
+<!--    }-->
+<!--    a:hover {-->
+<!--      text-decoration: underline;-->
+<!--    }-->
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<table>-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th>User name</th>-->
+<!--    <th>User surname</th>-->
+<!--    <th>User age</th>-->
+<!--    <th>Actions</th>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--  <tr th:each="usr : ${users4display}">-->
+<!--    <td th:text="${usr.getName()}"></td>-->
+<!--    <td th:text="${usr.getSurname()}"></td>-->
+<!--    <td th:text="${usr.getAge()}"></td>-->
+<!--    <td>-->
+<!--      <button type="button" class="action-btn">-->
+<!--        <a th:href="@{/admin/{id}/edit(id=${usr.getId()})}">Edit</a>-->
+<!--      </button>-->
+<!--      <form th:method="DELETE" th:action="@{/admin/{id}(id=${usr.getId()})}">-->
+<!--        <input type="submit" value="Delete" class="action-btn delete"/>-->
+<!--      </form>-->
+<!--    </td>-->
+<!--  </tr>-->
+<!--  </tbody>-->
+<!--</table>-->
+<!--<br/>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en" xml:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Search result</title>
+  <style>
+    body {
+      background-color: #F0F2F5;
+      font-family: "Helvetica Neue", sans-serif;
+    }
+    table {
+      margin: auto;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 80%;
+      background-color: #FFFFFF;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    th, td {
+      padding: 16px;
+      text-align: left;
+      border: none;
+      border-bottom: 1px solid #E5E5E5;
+      font-size: 16px;
+    }
+    th {
+      background-color: #FFFFFF;
+      font-weight: bold;
+      color: #4A4A4A;
+      text-transform: uppercase;
+      border-bottom: 2px solid #E5E5E5;
+    }
+    th:first-child, td:first-child {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 0;
+    }
+    th:last-child, td:last-child {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 0;
+    }
+    tbody tr:hover {
+      background-color: #F8F8F8;
+    }
+    .action-btn {
+      background-color: #007AFF;
+      color: #FFFFFF;
+      border-radius: 10px;
+      padding: 16px 32px;
+      font-size: 16px;
+      text-decoration: none;
+      border: none;
+      margin-right: 16px;
+      cursor: pointer;
+    }
+    .action-btn:hover {
+      background-color: #0062CC;
+    }
+    .action-btn.delete {
+      background-color: #FF3B30;
+    }
+    .action-btn.delete:hover {
+      background-color: #FF453A;
+    }
+    a {
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .logout-btn {
+      background-color: #007AFF;
+      color: #FFFFFF;
+      border-radius: 10px;
+      padding: 16px 32px;
+      font-size: 16px;
+      text-decoration: none;
+      border: none;
+      margin-right: 16px;
+      cursor: pointer;
+    }
+    .logout-btn:hover {
+      background-color: #0062CC;
+    }
+  </style>
+</head>
+<body>
+<table>
+  <thead>
+  <tr>
+    <th>User name</th>
+    <th>User surname</th>
+    <th>User age</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="usr : ${users4display}">
+    <td th:text="${usr.getName()}"></td>
+    <td th:text="${usr.getSurname()}"></td>
+    <td th:text="${usr.getAge()}"></td>
+    <td>
+      <button type="button" class="action-btn">
+        <a th:href="@{/admin/{id}/edit(id=${usr.getId()})}">Edit</a>
+      </button>
+      <form th:method="DELETE" th:action="@{/admin/{id}(id=${usr.getId()})}">
+        <input type="submit" value="Delete" class="action-btn delete"/>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<br/>
+<div style="text-align: center;">
+  <button type="button" class="logout-btn"><a href="/logout">Log out</a></button>
+</div>
+</body>
+</html>

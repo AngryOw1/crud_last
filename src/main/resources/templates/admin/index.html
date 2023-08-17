@@ -1,0 +1,150 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xml:th="http://thymeleaf.org">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>All users</title>-->
+<!--  <style>-->
+
+<!--    table {-->
+<!--      border-collapse: collapse;-->
+<!--      width: 100%;-->
+<!--    }-->
+
+<!--    th {-->
+<!--      border: 1px solid #000000;-->
+<!--      text-align: left;-->
+<!--      padding: 8px;-->
+<!--    }-->
+
+
+<!--    td {-->
+<!--      border: 1px solid #000000;-->
+<!--      text-align: left;-->
+<!--      padding: 8px;-->
+<!--    }-->
+
+
+<!--    tr:nth-child(even) {-->
+<!--      background-surname: #b2afaf;-->
+<!--    }-->
+
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<table>-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th>User name</th>-->
+<!--    <th>User surname</th>-->
+<!--    <th>User age</th>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+
+<!--  <tr th:each="usr : ${users4display}" th:attr="id=${usr.getId()}" onclick= "window.location.href='/admin/'+this.id;">-->
+<!--    <td th:text="${usr.getName()}"></td>-->
+<!--    <td th:text="${usr.getSurname()}"></td>-->
+<!--    <td th:text="${usr.getAge()}"></td>-->
+<!--  </tr>-->
+<!--  </tbody>-->
+<!--</table>-->
+<!--<br/>-->
+<!--<button type="button" ><a href="admin/new">Create new user</a></button>-->
+<!--</br>-->
+<!--<button type="button" ><a href="logout">Log out</a></button>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en" xml:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>All users</title>
+  <style>
+    body {
+      background-color: #F0F2F5;
+      font-family: "Helvetica Neue", sans-serif;
+    }
+    table {
+      margin: auto;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 80%;
+      background-color: #FFFFFF;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    th, td {
+      padding: 16px;
+      text-align: left;
+      border: none;
+      border-bottom: 1px solid #E5E5E5;
+      font-size: 16px;
+    }
+    th {
+      background-color: #FFFFFF;
+      font-weight: bold;
+      color: #4A4A4A;
+      text-transform: uppercase;
+      border-bottom: 2px solid #E5E5E5;
+    }
+    th:first-child, td:first-child {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 0;
+    }
+    th:last-child, td:last-child {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 0;
+    }
+    tbody tr:hover {
+      background-color: #F8F8F8;
+    }
+    button {
+      background-color: #007AFF;
+      color: #FFFFFF;
+      border-radius: 10px;
+      padding: 16px 32px;
+      font-size: 16px;
+      text-decoration: none;
+      border: none;
+      margin-right: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0062CC;
+    }
+    a {
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<table>
+  <thead>
+  <tr>
+    <th>User name</th>
+    <th>User surname</th>
+    <th>User age</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="usr : ${users4display}" th:attr="id=${usr.getId()}" onclick= "window.location.href='/admin/'+this.id;">
+    <td th:text="${usr.getName()}"></td>
+    <td th:text="${usr.getSurname()}"></td>
+    <td th:text="${usr.getAge()}"></td>
+  </tr>
+  </tbody>
+</table>
+<br/>
+<div style="text-align: center;">
+  <button type="button"><a href="admin/new">Create new user</a></button>
+  <button type="button"><a href="logout">Log out</a></button>
+</div>
+</body>
+</html>
